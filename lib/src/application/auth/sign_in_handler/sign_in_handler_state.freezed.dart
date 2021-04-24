@@ -80,7 +80,7 @@ class _$SignInHandlerStateCopyWithImpl<$Res>
           ? _value.emailAddress
           : emailAddress as EmailAddress,
       password: password == freezed ? _value.password : password as Password,
-      password: cellphoneNumber == freezed ? _value.cellphoneNumber : cellphoneNumber as CellphoneNumber,
+      cellphoneNumber: cellphoneNumber == freezed ? _value.cellphoneNumber : cellphoneNumber as CellphoneNumber,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
