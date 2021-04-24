@@ -73,7 +73,7 @@ class FirebaseAuthFacade implements AuthFacade {
 
   @override
   Future<Auth> registerWithCellphoneNumber({
-    @required String cellphoneNumber
+    @required CellphoneNumber cellphoneNumber
   }) async {
     final cellphoneNumber = cellphoneNumber.getOrCrash();
     return _registerWithCellphoneNumber(
