@@ -864,6 +864,15 @@ abstract class InvalidEmail<T> implements ValueFailure<T> {
   $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith;
 }
 
+abstract class InvalidCellphoneNumber<T> implements ValueFailure<T> {
+  const factory InvalidCellphoneNumber({@required T failedValue}) = _$InvalidCellphoneNumber<T>;
+
+  @override
+  T get failedValue;
+  @override
+  $InvalidCellphoneNumberCopyWith<T, InvalidCellphoneNumber<T>> get copyWith;
+}
+
 abstract class $ShortPasswordCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
   factory $ShortPasswordCopyWith(

@@ -28,4 +28,7 @@ abstract class AuthFacade {
   );
   Future<Auth> signInAnonymously();
   Future<void> signOut();
+  Future<Auth> signInWithCellphoneNumber({
+    @required CellphoneNumber cellphoneNumber
+  });
 }

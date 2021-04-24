@@ -20,7 +20,8 @@ class _$AuthProvidersTearOff {
       bool apple = false,
       bool github = false,
       bool twitter = false,
-      bool facebook = false}) {
+      bool facebook = false,
+      bool cellphoneNumber = false}) {
     return _AuthProviders(
       emailAndPassword: emailAndPassword,
       anonymous: anonymous,
@@ -29,6 +30,7 @@ class _$AuthProvidersTearOff {
       github: github,
       twitter: twitter,
       facebook: facebook,
+      cellphoneNumber: cellphoneNumber,
     );
   }
 }
@@ -44,6 +46,7 @@ mixin _$AuthProviders {
   bool get github;
   bool get twitter;
   bool get facebook;
+  bool get cellphoneNumber;
 
   $AuthProvidersCopyWith<AuthProviders> get copyWith;
 }
@@ -59,7 +62,8 @@ abstract class $AuthProvidersCopyWith<$Res> {
       bool apple,
       bool github,
       bool twitter,
-      bool facebook});
+      bool facebook,
+      bool cellphoneNumber});
 }
 
 class _$AuthProvidersCopyWithImpl<$Res>
@@ -79,6 +83,7 @@ class _$AuthProvidersCopyWithImpl<$Res>
     Object github = freezed,
     Object twitter = freezed,
     Object facebook = freezed,
+    Object cellphoneNumber = freezed,
   }) {
     return _then(_value.copyWith(
       emailAndPassword: emailAndPassword == freezed
@@ -90,6 +95,7 @@ class _$AuthProvidersCopyWithImpl<$Res>
       github: github == freezed ? _value.github : github as bool,
       twitter: twitter == freezed ? _value.twitter : twitter as bool,
       facebook: facebook == freezed ? _value.facebook : facebook as bool,
+      cellphoneNumber: cellphoneNumber == freezed ? _value.cellphoneNumber : cellphoneNumber as bool,
     ));
   }
 }
@@ -107,7 +113,8 @@ abstract class _$AuthProvidersCopyWith<$Res>
       bool apple,
       bool github,
       bool twitter,
-      bool facebook});
+      bool facebook,
+      bool cellphoneNumber});
 }
 
 class __$AuthProvidersCopyWithImpl<$Res>
@@ -129,6 +136,7 @@ class __$AuthProvidersCopyWithImpl<$Res>
     Object github = freezed,
     Object twitter = freezed,
     Object facebook = freezed,
+    Object cellphoneNumber = freezed,
   }) {
     return _then(_AuthProviders(
       emailAndPassword: emailAndPassword == freezed
@@ -140,6 +148,7 @@ class __$AuthProvidersCopyWithImpl<$Res>
       github: github == freezed ? _value.github : github as bool,
       twitter: twitter == freezed ? _value.twitter : twitter as bool,
       facebook: facebook == freezed ? _value.facebook : facebook as bool,
+      cellphoneNumber: cellphoneNumber == freezed ? _value.cellphoneNumber : cellphoneNumber as bool,
     ));
   }
 }
@@ -152,13 +161,15 @@ class _$_AuthProviders implements _AuthProviders {
       this.apple = false,
       this.github = false,
       this.twitter = false,
-      this.facebook = false})
+      this.facebook = false,
+      this.cellphoneNumber = false})
       : assert(emailAndPassword != null),
         assert(anonymous != null),
         assert(google != null),
         assert(apple != null),
         assert(github != null),
         assert(twitter != null),
+        assert(cellphoneNumber != null)
         assert(facebook != null);
 
   @JsonKey(defaultValue: true)
@@ -182,10 +193,13 @@ class _$_AuthProviders implements _AuthProviders {
   @JsonKey(defaultValue: false)
   @override
   final bool facebook;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool cellphoneNumber;
 
   @override
   String toString() {
-    return 'AuthProviders(emailAndPassword: $emailAndPassword, anonymous: $anonymous, google: $google, apple: $apple, github: $github, twitter: $twitter, facebook: $facebook)';
+    return 'AuthProviders(emailAndPassword: $emailAndPassword, anonymous: $anonymous, google: $google, apple: $apple, github: $github, twitter: $twitter, facebook: $facebook, cellphoneNumber: $cellphoneNumber)';
   }
 
   @override
@@ -209,7 +223,10 @@ class _$_AuthProviders implements _AuthProviders {
                     .equals(other.twitter, twitter)) &&
             (identical(other.facebook, facebook) ||
                 const DeepCollectionEquality()
-                    .equals(other.facebook, facebook)));
+                    .equals(other.facebook, facebook)) &&
+            (identical(other.cellphoneNumber, cellphoneNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.cellphoneNumber, cellphoneNumber)));
   }
 
   @override
@@ -221,7 +238,8 @@ class _$_AuthProviders implements _AuthProviders {
       const DeepCollectionEquality().hash(apple) ^
       const DeepCollectionEquality().hash(github) ^
       const DeepCollectionEquality().hash(twitter) ^
-      const DeepCollectionEquality().hash(facebook);
+      const DeepCollectionEquality().hash(facebook) ^
+      const DeepCollectionEquality().hash(cellphoneNumber);
 
   @override
   _$AuthProvidersCopyWith<_AuthProviders> get copyWith =>
@@ -236,7 +254,8 @@ abstract class _AuthProviders implements AuthProviders {
       bool apple,
       bool github,
       bool twitter,
-      bool facebook}) = _$_AuthProviders;
+      bool facebook,
+      bool cellphoneNumber}) = _$_AuthProviders;
 
   @override
   bool get emailAndPassword;
@@ -252,6 +271,8 @@ abstract class _AuthProviders implements AuthProviders {
   bool get twitter;
   @override
   bool get facebook;
+  @override
+  bool get cellphoneNumber;
   @override
   _$AuthProvidersCopyWith<_AuthProviders> get copyWith;
 }

@@ -56,6 +56,7 @@ mixin _$AuthConfig {
   ButtonConfig get facebookButton;
   TextFieldConfig get emailTextField;
   TextFieldConfig get passwordTextField;
+  TextFieldConfig get cellphoneNumberTextField;
 
   $AuthConfigCopyWith<AuthConfig> get copyWith;
 }
@@ -75,7 +76,8 @@ abstract class $AuthConfigCopyWith<$Res> {
       ButtonConfig twitterButton,
       ButtonConfig facebookButton,
       TextFieldConfig emailTextField,
-      TextFieldConfig passwordTextField});
+      TextFieldConfig passwordTextField,
+      TextFieldConfig cellphoneNumberTextField});
 
   $ButtonConfigCopyWith<$Res> get signInButton;
   $ButtonConfigCopyWith<$Res> get registerButton;
@@ -107,6 +109,7 @@ class _$AuthConfigCopyWithImpl<$Res> implements $AuthConfigCopyWith<$Res> {
     Object facebookButton = freezed,
     Object emailTextField = freezed,
     Object passwordTextField = freezed,
+    Object cellphoneNumberTextField = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed ? _value.title : title as Widget,
@@ -140,6 +143,9 @@ class _$AuthConfigCopyWithImpl<$Res> implements $AuthConfigCopyWith<$Res> {
       passwordTextField: passwordTextField == freezed
           ? _value.passwordTextField
           : passwordTextField as TextFieldConfig,
+      cellphoneNumberTextField: cellphoneNumberTextField == freezed
+          ? _value.cellphoneNumberTextField
+          : cellphoneNumberTextField as TextFieldConfig,
     ));
   }
 
@@ -449,7 +455,8 @@ abstract class _AuthConfig implements AuthConfig {
       ButtonConfig twitterButton,
       ButtonConfig facebookButton,
       TextFieldConfig emailTextField,
-      TextFieldConfig passwordTextField}) = _$_AuthConfig;
+      TextFieldConfig passwordTextField,
+      TextFieldConfig cellphoneNumberTextField}) = _$_AuthConfig;
 
   @override
   Widget get title;
@@ -473,6 +480,8 @@ abstract class _AuthConfig implements AuthConfig {
   TextFieldConfig get emailTextField;
   @override
   TextFieldConfig get passwordTextField;
+  @override
+  TextFieldConfig get cellphoneNumberTextField;
   @override
   _$AuthConfigCopyWith<_AuthConfig> get copyWith;
 }

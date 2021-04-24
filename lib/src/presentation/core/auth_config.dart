@@ -20,6 +20,7 @@ abstract class AuthConfig with _$AuthConfig {
     ButtonConfig facebookButton,
     TextFieldConfig emailTextField,
     TextFieldConfig passwordTextField,
+    TextFieldConfig cellphoneNumberTextField,
   }) = _AuthConfig;
 }
 

@@ -16,12 +16,14 @@ class _$SignInHandlerStateTearOff {
   _SignInHandlerState call(
       {@required EmailAddress emailAddress,
       @required Password password,
+      @required CellphoneNumber cellphoneNumber,
       @required bool showErrorMessages,
       @required bool isSubmitting,
       @required Option<Auth> authFailureOrSuccessOption}) {
     return _SignInHandlerState(
       emailAddress: emailAddress,
       password: password,
+      cellphoneNumber: cellphoneNumber,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
@@ -35,6 +37,7 @@ const $SignInHandlerState = _$SignInHandlerStateTearOff();
 mixin _$SignInHandlerState {
   EmailAddress get emailAddress;
   Password get password;
+  CellphoneNumber get cellphoneNumber;
   bool get showErrorMessages;
   bool get isSubmitting;
   Option<Auth> get authFailureOrSuccessOption;
@@ -49,6 +52,7 @@ abstract class $SignInHandlerStateCopyWith<$Res> {
   $Res call(
       {EmailAddress emailAddress,
       Password password,
+      CellphoneNumber cellphoneNumber,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Auth> authFailureOrSuccessOption});
@@ -66,6 +70,7 @@ class _$SignInHandlerStateCopyWithImpl<$Res>
   $Res call({
     Object emailAddress = freezed,
     Object password = freezed,
+    Object cellphoneNumber = freezed,
     Object showErrorMessages = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
@@ -75,6 +80,7 @@ class _$SignInHandlerStateCopyWithImpl<$Res>
           ? _value.emailAddress
           : emailAddress as EmailAddress,
       password: password == freezed ? _value.password : password as Password,
+      password: cellphoneNumber == freezed ? _value.cellphoneNumber : cellphoneNumber as CellphoneNumber,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
@@ -96,6 +102,7 @@ abstract class _$SignInHandlerStateCopyWith<$Res>
   $Res call(
       {EmailAddress emailAddress,
       Password password,
+      CellphoneNumber cellphoneNumber,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Auth> authFailureOrSuccessOption});
@@ -115,6 +122,7 @@ class __$SignInHandlerStateCopyWithImpl<$Res>
   $Res call({
     Object emailAddress = freezed,
     Object password = freezed,
+    Object cellphoneNumber = freezed,
     Object showErrorMessages = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
@@ -124,6 +132,7 @@ class __$SignInHandlerStateCopyWithImpl<$Res>
           ? _value.emailAddress
           : emailAddress as EmailAddress,
       password: password == freezed ? _value.password : password as Password,
+      cellphoneNumber: cellphoneNumber == freezed ? _value.cellphoneNumber : cellphoneNumber as CellphoneNumber,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
@@ -140,11 +149,13 @@ class _$_SignInHandlerState implements _SignInHandlerState {
   const _$_SignInHandlerState(
       {@required this.emailAddress,
       @required this.password,
+      @required this.cellphoneNumber,
       @required this.showErrorMessages,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
       : assert(emailAddress != null),
         assert(password != null),
+        assert(cellphoneNumber != null),
         assert(showErrorMessages != null),
         assert(isSubmitting != null),
         assert(authFailureOrSuccessOption != null);
@@ -154,6 +165,8 @@ class _$_SignInHandlerState implements _SignInHandlerState {
   @override
   final Password password;
   @override
+  final CellphoneNumber cellphoneNumber;
+  @override
   final bool showErrorMessages;
   @override
   final bool isSubmitting;
@@ -162,7 +175,7 @@ class _$_SignInHandlerState implements _SignInHandlerState {
 
   @override
   String toString() {
-    return 'SignInHandlerState(emailAddress: $emailAddress, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'SignInHandlerState(emailAddress: $emailAddress, password: $password, cellphoneNumber: $cellphoneNumber, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -185,7 +198,12 @@ class _$_SignInHandlerState implements _SignInHandlerState {
                     authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
                     other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption)));
+                    authFailureOrSuccessOption)) &&
+            (identical(other.cellphoneNumber,
+                cellphoneNumber) ||
+                const DeepCollectionEquality().equals(
+                    other.cellphoneNumber,
+                    cellphoneNumber)));
   }
 
   @override
@@ -193,6 +211,7 @@ class _$_SignInHandlerState implements _SignInHandlerState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(cellphoneNumber) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
@@ -206,6 +225,7 @@ abstract class _SignInHandlerState implements SignInHandlerState {
   const factory _SignInHandlerState(
           {@required EmailAddress emailAddress,
           @required Password password,
+          @required CellphoneNumber cellphoneNumber,
           @required bool showErrorMessages,
           @required bool isSubmitting,
           @required Option<Auth> authFailureOrSuccessOption}) =
@@ -215,6 +235,8 @@ abstract class _SignInHandlerState implements SignInHandlerState {
   EmailAddress get emailAddress;
   @override
   Password get password;
+  @override
+  CellphoneNumber get cellphoneNumber;
   @override
   bool get showErrorMessages;
   @override

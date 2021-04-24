@@ -11,6 +11,7 @@ abstract class SignInHandlerState with _$SignInHandlerState {
   const factory SignInHandlerState({
     @required EmailAddress emailAddress,
     @required Password password,
+    @required CellphoneNumber cellphoneNumber,
     @required bool showErrorMessages,
     @required bool isSubmitting,
     @required Option<Auth> authFailureOrSuccessOption,
@@ -19,6 +20,7 @@ abstract class SignInHandlerState with _$SignInHandlerState {
   factory SignInHandlerState.initial() => SignInHandlerState(
         emailAddress: EmailAddress(''),
         password: Password(''),
+        cellphoneNumber: CellphoneNumber(''),
         showErrorMessages: false,
         isSubmitting: false,
         authFailureOrSuccessOption: none(),

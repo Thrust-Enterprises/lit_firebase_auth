@@ -44,8 +44,20 @@ class SignInHandlerStateNotifier extends StateNotifier<SignInHandlerState>
     );
   }
 
+  void cellphoneNumberChanged(CellphoneNumber p) {
+    state = state.copyWith(
+      cellphoneNumber: p,
+      authFailureOrSuccessOption: none(),
+    );
+  }
+
   Future<void> registerWithEmailAndPassword() async {
     await _performActionOnAuthFacadeWithEmailAndPassword(
+        _authFacade.registerWithEmailAndPassword);
+  }
+
+  Future<void> registerWithCellphoneNumber() async {
+    await _performActionOnAuthFacadeWithCellphoneNumber(
         _authFacade.registerWithEmailAndPassword);
   }
 
@@ -112,7 +124,7 @@ class SignInHandlerStateNotifier extends StateNotifier<SignInHandlerState>
     }
 
     _performActionOnAuthFacadeWithOAuthProviders(
-          () => _authFacade.signInWithFacebook(),
+      () => _authFacade.signInWithFacebook(),
     );
   }
 
@@ -164,6 +176,47 @@ class SignInHandlerStateNotifier extends StateNotifier<SignInHandlerState>
     final auth = await forwardedCall(
       emailAddress: state.emailAddress,
       password: state.password,
+    );
+
+    // Need to check mounted
+    if (mounted) {
+      state = state.copyWith(
+        isSubmitting: false,
+        showErrorMessages: true,
+        authFailureOrSuccessOption: some(auth),
+      );
+    }
+  }
+
+  Future<void> _performActionOnAuthFacadeWithCellphoneNumber(
+    Future<Auth> Function({
+      @required CellphoneNumber cellphoneNumber,
+    })
+        forwardedCall,
+  ) async {
+    if (!_authProviders.cellphoneNumber) {
+      throw AuthProviderNotEnabled('Cellphone Number');
+    }
+
+    final isCellphoneNumberValid = state.cellphoneNumber.isValid();
+
+    /* Invalid email or password. Show errors and return */
+    if (!isCellphoneNumberValid) {
+      state = state.copyWith(
+        isSubmitting: false,
+        showErrorMessages: true,
+        authFailureOrSuccessOption: none(),
+      );
+      return; // quit
+    }
+
+    state = state.copyWith(
+      isSubmitting: true,
+      authFailureOrSuccessOption: none(),
+    );
+
+    final auth = await forwardedCall(
+      cellphoneNumber: state.cellphoneNumber,
     );
 
     // Need to check mounted

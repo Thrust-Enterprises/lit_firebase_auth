@@ -97,6 +97,11 @@ class StandardSignInWidget extends StatelessWidget {
               SignInForm(
                 child: Column(
                   children: [
+                    CellphoneNumberTextFormField(
+                      style: config?.cellphoneNumberTextField?.style,
+                      decoration: config?.cellphoneNumberTextField?.inputDecoration,
+                    ),
+                    const SizedBox(height: 8),
                     EmailTextFormField(
                       style: config?.emailTextField?.style,
                       decoration: config?.emailTextField?.inputDecoration,

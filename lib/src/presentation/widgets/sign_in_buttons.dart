@@ -384,7 +384,7 @@ class EmailAndPasswordRegisterButton extends StatelessWidget {
             child: defaultChild,
           ),
       onPressed: () {
-        context.registerWithEmailAndPassword();
+        context.registerWithCellphoneNymber();
       },
     );
   }
